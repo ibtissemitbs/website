@@ -1,0 +1,141 @@
+/* ==================== */
+/* API Tester Section */
+/* ==================== */
+.api-tester {
+  padding: 4rem 2rem;
+  background-color: var(--bg-light);
+}
+
+.api-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.api-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.api-header h2 {
+  font-size: 2.5rem;
+  color: var(--text-on-dark);
+  margin-bottom: 1rem;
+}
+
+.api-header p {
+  font-size: 1.1rem;
+  color: var(--text-muted-on-dark);
+}
+
+.api-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.api-config,
+.api-request,
+.api-response {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-orange);
+  box-shadow: 0 2px 8px rgba(26, 23, 86, 0.08);
+}
+
+.api-config h3,
+.api-request h3,
+.api-response h3 {
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #DDD;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: 'Courier New', monospace;
+  background-color: var(--white);
+  color: var(--text-dark);
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-pink);
+  box-shadow: 0 0 0 3px rgba(255, 30, 95, 0.1);
+}
+
+.form-group button {
+  margin-top: 1rem;
+}
+
+.form-group button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.response-container {
+  background-color: var(--primary-blue);
+  padding: 1.5rem;
+  border-radius: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  color: var(--text-on-dark);
+}
+
+.response-container pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Courier New', monospace;
+  color: var(--text-on-dark);
+}
+
+.btn-pink {
+  background-color: var(--primary-pink);
+  color: var(--white);
+  border-color: var(--primary-pink);
+  width: 100%;
+}
+
+.btn-pink:hover {
+  background-color: #E01551;
+  box-shadow: 0 4px 12px rgba(255, 30, 95, 0.3);
+}
+
+@media (max-width: 768px) {
+  .api-tester {
+    padding: 2rem 1.5rem;
+  }
+
+  .api-header h2 {
+    font-size: 2rem;
+  }
+
+  .api-content {
+    grid-template-columns: 1fr;
+  }
+}

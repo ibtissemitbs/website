@@ -1,0 +1,156 @@
+/* ==================== */
+/* Guide Section */
+/* ==================== */
+.guide {
+  padding: 4rem 2rem;
+  background-color: var(--white);
+  color: var(--text-dark);
+}
+
+.guide-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.guide-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.guide-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.guide-header p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.step {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-orange);
+  border: 1px solid #EEE;
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(26, 23, 86, 0.1);
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  background: linear-gradient(135deg, var(--primary-pink) 0%, #FF1E5F 100%);
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.step-content h3 {
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.benefits-section {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+  color: var(--white);
+  padding: 3rem;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.benefits-section h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.benefit {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefit-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.benefit h4 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.benefit p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .guide {
+    padding: 2rem 1.5rem;
+  }
+
+  .guide-header h2 {
+    font-size: 2rem;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-section {
+    padding: 2rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .steps {
+    gap: 1rem;
+  }
+
+  .step {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,130 @@
+/* ==================== */
+/* Color Palette - Hate Speech Shield */
+/* ==================== */
+:root {
+  /* Primary Colors */
+  --primary-blue: #0B132B; /* deep navy */
+  --primary-blue-light: #1F2A44; /* muted indigo */
+  --primary-orange: #FFB800; /* keep accent for badges */
+  --primary-pink: #D43C7A; /* magenta accent like capture */
+  
+  /* Secondary Colors */
+  --accent-orange: #FF8C00;
+  --accent-pink: #FF66A3;
+  
+  /* Neutral Colors */
+  --text-dark: #0B132B; /* default text on light surfaces */
+  --text-light: #5B647A;
+  --text-very-light: #8A8FA3;
+  --text-on-dark: #E8EAF6;
+  --text-muted-on-dark: #B0B3C3;
+  --white: #FFFFFF;
+  --light-gray: #F5F5F5;
+  --bg-light: #0F1222; /* page background to match capture */
+  
+  /* Layout/Components */
+  --header-bg: #8C2B58; /* top bar like screenshot */
+  --card-bg: #FFFFFF; /* card surfaces */
+  --border-color: #29324D; /* subtle borders */
+}
+
+/* ==================== */
+/* General Styles */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-on-dark);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* ==================== */
+/* Buttons */
+/* ==================== */
+.btn {
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: var(--primary-pink);
+  color: var(--white);
+  border-color: var(--primary-pink);
+}
+
+.btn-primary:hover {
+  background-color: #E01551;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 30, 95, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-pink);
+  border-color: var(--primary-pink);
+}
+
+.btn-secondary:hover {
+  background-color: var(--light-gray);
+  transform: translateY(-2px);
+}
+
+.btn-orange {
+  background-color: var(--primary-orange);
+  color: var(--white);
+  border-color: var(--primary-orange);
+}
+
+.btn-orange:hover {
+  background-color: var(--accent-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+}
+
+.btn-large {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+/* ==================== */
+/* Responsive Design */
+/* ==================== */
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
