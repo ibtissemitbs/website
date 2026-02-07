@@ -1,125 +1,107 @@
-import { useState } from 'react'
-import { useLanguage } from '../context/LanguageContext'
-import './ApiTester.css'
+import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+import {
+  FiSend,
+  FiCheckCircle,
+  FiAlertTriangle,
+} from "react-icons/fi";
+import "./ApiTester.css";
 
 function ApiTester() {
-  const { t } = useLanguage()
-  const apiUrl = 'http://localhost:5000/api'
-  const endpoint = '/analyze'
-  const method = 'POST'
+  const { t } = useLanguage();
+  const [text, setText] = useState("");
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const [textToAnalyze, setTextToAnalyze] = useState('')
-  const [response, setResponse] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const analyzeText = async () => {
+    if (!text.trim()) return;
 
-  const sendRequest = async () => {
-    if (!apiUrl || !endpoint) {
-      setResponse(t('apiTester.errorURL'))
-      return
-    }
-
-    if (!textToAnalyze.trim()) {
-      return
-    }
-
-    setIsLoading(true)
-    setResponse(t('apiTester.sending'))
+    setLoading(true);
+    setResult(null);
 
     try {
-      const fullUrl = new URL(endpoint, apiUrl).toString()
-      
-      const options = {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
+      const res = await fetch(
+        "https://hate-speech-api-486614.uc.r.appspot.com/api/analyze",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text }),
         }
-      }
+      );
 
-      options.body = JSON.stringify({ text: textToAnalyze })
-
-      const res = await fetch(fullUrl, options)
-      const data = await res.json()
-
-      const formattedResponse = {
-        status: res.status,
-        statusText: res.statusText,
-        headers: {
-          'content-type': res.headers.get('content-type'),
-          'content-length': res.headers.get('content-length')
-        },
-        body: data
-      }
-
-      setResponse(JSON.stringify(formattedResponse, null, 2))
-    } catch (error) {
-      setResponse(t('apiTester.errorRequest') + error.message + t('apiTester.errorCheck'))
+      const data = await res.json();
+      setResult(data);
+    } catch (err) {
+      console.error(err);
     } finally {
-      setIsLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
-  const copyResponse = () => {
-    navigator.clipboard.writeText(response).then(() => {
-      alert(t('apiTester.copied'))
-    }).catch(err => {
-      console.error('Erreur lors de la copie:', err)
-      alert(t('apiTester.errorCopy'))
-    })
-  }
+  const score = result
+    ? Math.round(result.hate_speech_score * 100)
+    : 0;
+
+  const isHate = result?.is_hate_speech;
 
   return (
-    <section className="api-tester">
-      <div className="api-container">
-        <div className="agent-card">
-          <div className="agent-header">
-            <span className="agent-badge">{t('apiTester.title')}</span>
-          </div>
-          
-          <p className="agent-greeting">
-            {t('apiTester.greeting')}
-          </p>
+    <section className="api-demo">
+      <div className="api-wrapper">
+        <header className="api-header">
+          <h2>{t("apiTester.title")}</h2>
+          <p>{t("apiTester.subtitle")}</p>
+        </header>
 
-          <div className="agent-input-wrapper">
-            <div className="agent-input-container">
-              <textarea
-                id="text-to-analyze"
-                rows="3"
-                placeholder={t('apiTester.placeholder')}
-                value={textToAnalyze}
-                onChange={(e) => setTextToAnalyze(e.target.value)}
-              />
-              <button
-                className="send-btn"
-                onClick={sendRequest}
-                disabled={isLoading}
-                aria-label="Send"
-              >
-                {isLoading ? (
-                  <span className="loading-spinner"></span>
+        <div className="api-card">
+          <label className="api-label">Texte à analyser</label>
+
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Écrivez un texte ici..."
+          />
+
+          <button
+            className="analyze-btn"
+            onClick={analyzeText}
+            disabled={loading || !text.trim()}
+          >
+            <FiSend />
+            {loading ? "Analyse..." : "Analyser"}
+          </button>
+
+          {result && (
+            <div className={`result ${isHate ? "danger" : "safe"}`}>
+              <div className="result-header">
+                {isHate ? (
+                  <>
+                    <FiAlertTriangle />
+                    Discours haineux détecté
+                  </>
                 ) : (
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                  </svg>
+                  <>
+                    <FiCheckCircle />
+                    Aucun discours haineux
+                  </>
                 )}
-              </button>
-            </div>
-          </div>
-
-          {response ? (
-            <div className="agent-response">
-              <h4>{t('apiTester.response')}</h4>
-              <div className="response-container">
-                <pre>{response}</pre>
               </div>
-              <button className="btn btn-secondary" onClick={copyResponse}>
-                {t('apiTester.copy')}
-              </button>
+
+              <div className="confidence">
+                <span>Confiance</span>
+                <div className="bar">
+                  <div
+                    className="fill"
+                    style={{ width: `${score}%` }}
+                  />
+                </div>
+                <strong>{score}%</strong>
+              </div>
             </div>
-          ) : null}
+          )}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default ApiTester
+export default ApiTester;
