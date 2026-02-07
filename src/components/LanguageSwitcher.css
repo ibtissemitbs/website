@@ -6,8 +6,8 @@
 
 .lang-btn {
   padding: 0.5rem 0.75rem;
-  background-color: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   color: var(--white);
   border-radius: 6px;
   cursor: pointer;
@@ -17,14 +17,13 @@
 }
 
 .lang-btn:hover {
-  background-color: var(--white);
-  color: var(--header-bg);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .lang-btn.active {
-  background-color: var(--white);
-  color: var(--header-bg);
-  border-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {
