@@ -39,7 +39,7 @@ function ApiTester() {
   };
 
   const score = result
-    ? Math.round(result.hate_speech_score * 100)
+    ? result.hate_speech_score.toFixed(2)
     : 0;
 
   const isHate = result?.is_hate_speech;

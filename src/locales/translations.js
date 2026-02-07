@@ -158,6 +158,10 @@ Si vous avez besoin de soutien, notre application Theramind offre des thérapies
     'support.communityText': 'Rejoignez un forum sécurisé pour échanger avec d\'autres utilisateurs, partager vos expériences et recevoir du soutien de pairs dans un environnement bienveillant et sans jugement.',
     'support.joinCommunity': 'Rejoindre la Communauté',
     'support.faqs': 'Questions Fréquentes',
+    'support.faq1Title': 'Que faire si je suis victime de hatespeech?',
+    'support.faq2Title': 'Comment signaler le hatespeech?',
+    'support.faq3Title': 'Comment protéger ma santé mentale en ligne?',
+    'support.faq4Title': 'Existe-t-il des lois contre le hatespeech?',
 
     // Footer
     'footer.privacy': 'Confidentialité',
@@ -426,6 +430,10 @@ If you need support, our Theramind application offers guided therapy and emotion
     'support.communityText': 'Join a secure forum to exchange with other users, share your experiences and receive peer support in a welcoming and judgment-free environment.',
     'support.joinCommunity': 'Join the Community',
     'support.faqs': 'Frequently Asked Questions',
+    'support.faq1Title': 'What should I do if I\'m a victim of hate speech?',
+    'support.faq2Title': 'How do I report hate speech?',
+    'support.faq3Title': 'How can I protect my mental health online?',
+    'support.faq4Title': 'Are there laws against hate speech?',
 
     // Footer
     'footer.privacy': 'Privacy',
@@ -694,6 +702,10 @@ Se hai bisogno di supporto, la nostra applicazione Theramind offre terapia guida
     'support.communityText': 'Unisciti a un forum sicuro per scambiare con altri utenti, condividere le tue esperienze e ricevere supporto tra pari in un ambiente accogliente e senza giudizi.',
     'support.joinCommunity': 'Unisciti alla Comunità',
     'support.faqs': 'Domande Frequenti',
+    'support.faq1Title': 'Cosa devo fare se sono vittima di discorso d\'odio?',
+    'support.faq2Title': 'Come posso segnalare un discorso d\'odio?',
+    'support.faq3Title': 'Come posso proteggere la mia salute mentale online?',
+    'support.faq4Title': 'Esistono leggi contro il discorso d\'odio?',
 
     // Footer
     'footer.privacy': 'Privacy',

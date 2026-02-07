@@ -210,6 +210,10 @@
 .timeline-dot {
   width: 56px;
   height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
   background: linear-gradient(135deg, var(--primary-pink), #ff3d6e);
   border-radius: 50%;
   margin: 0 auto 1.5rem;
@@ -292,5 +296,10 @@
 
   .timeline-dot {
     margin: 0;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
+    flex-shrink: 0;
   }
 }

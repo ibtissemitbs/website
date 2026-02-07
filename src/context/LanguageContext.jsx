@@ -6,8 +6,9 @@ const LanguageContext = createContext()
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState('fr')
 
-  const t = (key) => {
-    return translations[language]?.[key] || key
+  const t = (key, fallback) => {
+    const value = translations[language]?.[key]
+    return value ?? fallback ?? key
   }
 
   return (
